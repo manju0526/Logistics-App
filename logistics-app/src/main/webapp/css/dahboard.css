@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f7ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: flex-start; /* Align navigation to the left */
+    background-color: #005bb5; /* Darker blue for tabs */
+    padding: 10px;
+    position: relative;
+}
+
+.nav .dropdown {
+    position: relative;
+}
+
+.nav .dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 14px; /* Reduced tab size */
+    display: inline-block;
+}
+
+.nav .dropdown a:hover {
+    background-color: #003f7f; /* Darker hover color */
+    border-radius: 5px;
+}
+
+.nav .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0; /* Align dropdown to the left of the parent tab */
+    background-color: #005bb5; /* Match the tab color */
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.nav .dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.nav .dropdown-content a:hover {
+    background-color: #003f7f; /* Darker hover color for dropdown */
+}
+
+/* Logout Button */
+.logout {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1000;
+}
+
+.logout button {
+    background-color: #ff4d4d; /* Red logout button */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Content Section */
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content h1 {
+    color: #005bb5;
+}
+
+.content p {
+    color: #003f7f;
+}
