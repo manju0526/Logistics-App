@@ -42,6 +42,14 @@
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/main/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Tag Library Configuration -->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://www.logistics.com/ui</taglib-uri>
+            <taglib-location>/WEB-INF/tlds/logistics-ui.tld</taglib-location>
+        </taglib>
+    </jsp-config>
 
 
 </web-app>

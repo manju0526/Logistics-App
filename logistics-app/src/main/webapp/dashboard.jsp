@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dahboard.css">
+
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
         const dropdowns = document.querySelectorAll(".dropdown");
@@ -21,33 +22,20 @@
             });
         });
 
-        // Dynamic content loading function
+        // Dynamic content loading function (now uses iframe)
         function loadContent(controller, mode) {
-            const dynamicContent = document.querySelector(".content");
+            const iframe = document.querySelector("#contentIframe"); // Select iframe
 
             if (controller && mode) {
                 console.log("Inside load content: "+controller , "MODE: "+mode);
-                // Construct the correct URL with controller and mode
-                 // Construct the URL dynamically
-        		const baseUrl = "<%=request.getContextPath()%>" + "/main";
-        		console.log("BASE URL::::: "+baseUrl);
-        		const url = baseUrl + "?controller="+ controller +"&mode="+mode;
+                // Construct the URL dynamically
+                const baseUrl = "<%=request.getContextPath()%>" + "/main";
+                console.log("BASE URL::::: "+baseUrl);
+                const url = baseUrl + "?controller=" + controller + "&mode=" + mode;
 
                 console.log("Constructed URL: ", url); // Log the URL to verify it's correct
 
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Failed to load content");
-                        }
-                        return response.text();
-                    })
-                    .then(html => {
-                        dynamicContent.innerHTML = html;
-                    })
-                    .catch(error => {
-                        dynamicContent.innerHTML = `<p class="error">Error loading content: ${error.message}</p>`;
-                    });
+                iframe.src = url; // Set the iframe src to load the new content
             } else {
                 console.error("Controller or mode is missing");
             }
@@ -74,8 +62,6 @@
         });
     });
 </script>
-
-
 </head>
 <body>
     <div class="logout">
@@ -106,9 +92,11 @@
             </div>
         </div>
     </div>
-    <div class="content">
-        <h1>Welcome to the Dashboard</h1>
-        <p>Select a tab to navigate through the application.</p>
-    </div>
+
+    <!-- iframe where the content will be loaded -->
+     <iframe id="contentIframe" name="contentIframe" style="width: 100%; height: 850px; border: none;" src=""></iframe>
+
+	
+
 </body>
 </html>

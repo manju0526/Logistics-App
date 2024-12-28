@@ -12,7 +12,12 @@ import com.logistic.basic.C0100H;
 @WebServlet("/main*") // Intercepts all requests
 public class DispatcherServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         handleRequest(request, response);
     }
