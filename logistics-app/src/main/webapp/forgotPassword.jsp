@@ -22,11 +22,12 @@ String errorMsg = STRINGS.replaceNull(request.getParameter("Errormsg"));
 		}
 	}
 
-	function resetPassword(){
+	function resetPassword(username){
      if(isEmpty(document.theform.username)){
          alert("Username not entered!!");
          }else{
-             alert("Still functionality yet to develope!!!");
+            document.theform.username.value=username;
+            document.theform.submit();
          }
 	}
 </script>
@@ -41,7 +42,7 @@ String errorMsg = STRINGS.replaceNull(request.getParameter("Errormsg"));
 			<!-- Login Form -->
 			<div class="login-form">
 				<h2>Forgot Password</h2>
-				<form name="theform" action="login" method="POST">
+				<form name="theform" action="reset" method="POST">
 					<div class="form-group">
 						<label for="username">Username</label> <input type="text"
 							id="username" name="username">
@@ -49,7 +50,7 @@ String errorMsg = STRINGS.replaceNull(request.getParameter("Errormsg"));
 
 
 					<div class="form-group">					
-					  <input type="button" class="btn" onclick="resetPassword()" value="Rest Password" name="save">			
+					  <input type="button" class="btn" onclick="resetPassword(document.theform.username.value)" value="Rest Password" name="save">			
 					</div>
 
 

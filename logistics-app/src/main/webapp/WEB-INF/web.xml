@@ -16,6 +16,16 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/login</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ResetServlet</servlet-name>
+		<servlet-class>com.logistics.controller.ResetServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>ResetServlet</servlet-name>
+		<url-pattern>/reset</url-pattern>
+	</servlet-mapping>
 
 	<!-- Welcome Page -->
 	<welcome-file-list>
