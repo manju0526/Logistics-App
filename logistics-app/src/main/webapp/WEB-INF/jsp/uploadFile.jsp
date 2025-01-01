@@ -8,6 +8,7 @@
     <script type="text/javascript">
         function excelupload() {
             alert("File upload triggered!");
+            
            /*  document.forms[0].submit();  // Submit the form when the button is clicked */
         }
     </script>

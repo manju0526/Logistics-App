@@ -34,7 +34,8 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("User validation Successfull!!!!");
 				response.sendRedirect(request.getContextPath()+"/dashboard.jsp");
 			} else {
-				response.getWriter().println("Invalid credentials!");
+				response.sendRedirect(request.getContextPath()+"/login.jsp?Errormsg=Invalid Username or password. Please retry once");
+			//	response.getWriter().println("Invalid credentials!");
 			}
 
 		} catch (Exception e) {

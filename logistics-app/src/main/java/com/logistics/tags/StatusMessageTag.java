@@ -27,7 +27,7 @@ public class StatusMessageTag extends SimpleTagSupport {
     public void doTag() throws JspException, IOException {
         JspWriter out = getJspContext().getOut();
         String color = "lightbrown";  // Default color
-        String finalMessage = (message != null && !message.trim().isEmpty()) ? message : "corp Pvt ltd company @2025";  // Default message when message is null or empty
+        String finalMessage = (message != null && !message.trim().isEmpty()) ? message : "2024 Logistics Corp. Terms & Conditions";  // Default message when message is null or empty
 
         // Handle type for success, fail, etc.
         if (type == null) {

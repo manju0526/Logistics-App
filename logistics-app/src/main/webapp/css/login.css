@@ -83,6 +83,8 @@ input[type="text"]:focus, input[type="password"]:focus {
     transition: background-color 0.3s ease;
 }
 
+
+
 /* Button hover effect */
 .btn:hover {
     background-color: #218838; /* Darker green when hovered */
@@ -127,4 +129,14 @@ input[type="text"]:focus, input[type="password"]:focus {
         padding: 12px;
         font-size: 16px;
     }
+    
+    /* Style for the password hint or error text */
+    .login-form-pass {
+        width: auto; /* Use auto to avoid stretching the width */
+        padding: 20px;
+        color: red; /* Set text color to red */
+        text-align: right; /* Align text to the right within the container */
+        float: right; /* Position the element to the right of its container */
+    }
 }
+
