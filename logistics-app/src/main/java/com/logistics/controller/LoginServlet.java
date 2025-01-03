@@ -6,8 +6,11 @@ import javax.servlet.http.*;
 import java.io.*;
 
 import com.logistics.utils.SCMLoginValidate;
+import com.logistics.utils.StringFunctions;
 
 public class LoginServlet extends HttpServlet {
+	
+	private StringFunctions STRINGS = new StringFunctions();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -18,14 +21,15 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// Get form parameters
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = STRINGS.replaceNull(request.getParameter("username"));
+		String password = STRINGS.replaceNull(request.getParameter("password"));
 		String isValidUser = "FALSE";
+		
 		System.out.println("Username::: " + username);
 		System.out.println("Password:::: " + password);
-		// Simple login logic (just a basic check for demonstration)
 
 		try {
+			
 			if (username != null && password != null) {
 				isValidUser = SCMLoginValidate.validation(username, password, request, response);
 			}
@@ -34,12 +38,13 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("User validation Successfull!!!!");
 				response.sendRedirect(request.getContextPath()+"/dashboard.jsp");
 			} else {
+				System.out.println("Not a valid user!!!!");				
 				response.sendRedirect(request.getContextPath()+"/login.jsp?Errormsg=Invalid Username or password. Please retry once");
-			//	response.getWriter().println("Invalid credentials!");
+
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 			System.err.println("something missing");
 		}
 

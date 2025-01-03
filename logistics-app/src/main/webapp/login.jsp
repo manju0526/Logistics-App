@@ -12,20 +12,23 @@ String errorMsg = STRINGS.replaceNull(request.getParameter("Errormsg"));
 <title>Login - Logistics App</title>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/css/login.css">
-
+<script src="./clientvalidations.js"></script>
 <script type="text/javascript">
         function login() {
             // You can add validation logic or any other functionality here
             // Example of simple validation to check if username and password are not empty
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+     /*        var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value; */
 
-            if (username === '' || password === '') {
-                alert("Please fill in both username and password.");
+            if (isEmpty(document.theform.username)) {
+                alert("User ID not entered");
                 return false; // Prevent form submission if validation fails
             }
-
-            // Optionally, you can proceed to submit the form if everything is okay
+            if(isEmpty(document.theform.password)){
+                alert("Password not entered");
+                return false;
+            }
+       
             document.theform.submit(); // Submit the form programmatically
         }
 
@@ -68,7 +71,8 @@ String errorMsg = STRINGS.replaceNull(request.getParameter("Errormsg"));
 
 					<div class="login-form-pass">
 						<font color="#ffffff" size="4" face="arial narrow"> <a
-							href="javascript:forgotPassword();" style="color: red">Forgot Password</a>
+							href="javascript:forgotPassword();" style="color: red">Forgot
+								Password</a>
 						</font>
 					</div>
 
