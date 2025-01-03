@@ -8,7 +8,7 @@ import java.io.*;
 import com.logistics.utils.SCMLoginValidate;
 import com.logistics.utils.StringFunctions;
 
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {  
 	
 	private StringFunctions STRINGS = new StringFunctions();
 
